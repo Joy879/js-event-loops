@@ -23,7 +23,20 @@ When the thread pool completes a task, a callback function is called which handl
 
 ### 3. List some best practices in server-side code development
 
-### 4. What is NPM5: How do you initialize a package in npm
+* Simple things should be simple; complex things should be possible. Design for the simple case first, with preferably zero configuration or parameterization, if that's possible. Add options or additional API methods for more complex and flexible use cases (as they are needed).
+* Write defensively. Always think about what can go wrong, what will happen on invalid input, and what might fail, which will help you catch many bugs before they happen.
+* YAGNI: "You Aint Gonna Need It". Don't write code that you think you might need in future, but don't need yet. 
+* Unit tests test to the unit of behavior, not the unit of implementation.
+* For unit tests (including test infrastructure tests) all code paths should be tested. 100% coverage is a good place to start. 
+* Logic is easy to unit test if it is stateless and side-effect free. Break out logic into separate functions, rather than mixing logic into stateful and side-effect-filled code. Separating stateful code and code with side-effects into smaller functions makes them easier to mock out and unit test without side-effects. 
+* Globals are bad. Functions are better than types. Objects are likely to be better than complex data structures.
+* Dependency injection is a useful coding pattern for being clear about what your dependencies are and where they come from. 
+* Refactor whenever you see the need and have the chance.
+* Make code correct first and fast second. When working on performance issues, always profile before making fixes. 
+
+### 4. What is npm: How do you initialize a package in npm
+
+npm is the command line client that allows developers to install and publish packages found in the npm Registry. Whenever you want to initialize a package you use `npm init <package-spec>`
 
 ### 5. How do you run a script in the package.json ?
 
